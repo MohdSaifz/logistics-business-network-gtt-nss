@@ -50,6 +50,8 @@ sap.ui.define(
 
         this.setModel(timelineModel, "timeline");
         this.setModel(mapModel, "map");
+
+
       },
 
       onBeforeRendering: function () {
@@ -72,10 +74,26 @@ sap.ui.define(
       },
 
       initMap: function () {
-        var map = this.getControlByFragment("trackingTimelineMap", "geoMap");
+        //var map = this.getControlByFragment("trackingTimelineMap", "geoMap");
+        var that = this;
         MapHelper.getHereMapKey().then(function () {
-          MapHelper.setMapConfiguration(map, "HERE");
+          //MapHelper.setMapConfiguration(null, "HERE");
+            //try NSS
+            that._oServer = that.byId("TrackingTimelineMapPanel").getContent().mAggregations.items[2];//that.byId("idNscServer");
+            
+            //if(this._oServer!=undefined)
+            //{
+              that._oServer.setBusinessObject({
+                id: "3d177b6d-b833-479d-a333-31f34111a43d",
+                type: "WorkOrder"
+              });
+
+              that._oServer.initialize();
+            //}
         });
+        //NSS init here
+        //about NSS
+        
       },
 
       /**

@@ -9,11 +9,11 @@ modules:
   properties:
     SPRING_PROFILES_ACTIVE: cloud
     DESTINATION_GTT: gtt_core_engine_flp_base_url
-    HERE_MAP_KEY: {here-map-license-key}
+    HERE_MAP_KEY: default
   parameters:
     buildpack: java_buildpack
     health-check-timeout: 180
-    host: gtt-sample-track-shipments-service-{unique-identifier}
+    host: gtt-sample-track-shipments-service-gtt-nss
   build-parameters:
     ignore:
     - "*.md"
