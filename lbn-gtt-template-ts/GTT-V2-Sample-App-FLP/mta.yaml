@@ -15,7 +15,7 @@ modules:
       disk-quota: 256M
       memory: 256M
       routes:
-        - route: lbn-gtt-samples-app-flp-gtt-nss.${domain}
+        - route: lbn-gtt-trial-app-flp-gtt-nss.${domain}
     properties:
       SAP_JWT_TRUST_ACL:
         - clientid: "*"
@@ -30,9 +30,11 @@ modules:
       - name: lbn-gtt-sample-portal-resources
       - name: lbn-gtt-sst-api
       - name: nss-gtt
-  - name: flp
+  - name: flp-gtt
     type: com.sap.application.content
     path: flp
+    properties:
+          TENANT_HOST_PATTERN: 'lbn-gtt-trial-app-flp-gtt-nss.${domain}'
     parameters:
       stack: cflinuxfs3
       memory: 128M
@@ -40,6 +42,12 @@ modules:
     requires:
       - name: lbn-gtt-sample-app-uaa
       - name: lbn-gtt-sample-portal-resources
+        parameters:
+          content-target: true
+          service-key:
+            config:
+              content-endpoint: developer
+            name: content-deploy-key
       - name: gtt-ui-sample-track-shipments-app-host
 resources:
   - name: nss-gtt
@@ -64,9 +72,8 @@ resources:
         xsappname: "${xsappname}"
         tenant-mode: dedicated
         oauth2-configuration:
-          token-validity: 9000
-          redirect-uris: 
-            - "https://lbn-gtt-samples-app-flp-gtt-nss.cfapps.eu10-004.hana.ondemand.com/login/callback"
+          redirect-uris:
+            - https://*.eu10-004.hana.ondemand.com/**
           system-attributes:
             - rolecollections
         description: Security profile of sales order fulfillment application
@@ -107,7 +114,7 @@ resources:
             description: Track & Trace Standalone Shipment Tracking Template App User Write Access
             scope-references:
               - "$XSAPPNAME.sst.w"
-              - uaa.user         
+              - uaa.user
   - name: gtt-ui-sample-track-shipments-app-host
     type: org.cloudfoundry.existing-service
   - name: lbn-gtt-sample-destination

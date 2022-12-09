@@ -9,7 +9,7 @@ modules:
   properties:
     SPRING_PROFILES_ACTIVE: cloud
     DESTINATION_GTT: gtt_core_engine_flp_base_url
-    HERE_MAP_KEY: default
+    HERE_MAP_KEY: 5p_0AG9qqe3F9ZJ6mwIBwBTD5hwAaA179t44UfFb-Wo
   parameters:
     buildpack: java_buildpack
     health-check-timeout: 180

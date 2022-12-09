@@ -2,12 +2,12 @@
   "welcomeFile": "/cp.portal",
   "authenticationMethod": "route",
   "routes": [
-    {
-      "source": "^/(token.json)(.*)$",
-      "target": "$1",
-      "localDir": "resources"
-    },
-    {
+          {
+            "source": "^/(token.json)(.*)$",
+            "target": "$1",
+            "localDir": "resources"
+          },
+          {
             "source": "^/nss/config(.*)$",
             "target": "$1",
             "service": "com.sap.bnc.nss.service",
