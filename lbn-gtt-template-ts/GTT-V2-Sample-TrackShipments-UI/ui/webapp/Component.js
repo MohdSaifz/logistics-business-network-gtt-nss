@@ -1,3 +1,11 @@
+sap.ui.loader.config({
+	paths: {
+		"sap/bnc/nsc": "/sapbncnsc/resources/sap/bnc/nsc/"
+	}
+});
+
+sap.ui.getCore().loadLibrary("sap.bnc.nsc");
+
 sap.ui.define(
   [
     "sap/ui/core/UIComponent",

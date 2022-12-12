@@ -2,10 +2,34 @@
   "welcomeFile": "/cp.portal",
   "authenticationMethod": "route",
   "routes": [
-    {
-      "source": "^/(token.json)(.*)$",
-      "target": "$1",
-      "localDir": "resources"
-    }
+          {
+            "source": "^/(token.json)(.*)$",
+            "target": "$1",
+            "localDir": "resources"
+          },
+          {
+            "source": "^/nss/config(.*)$",
+            "target": "$1",
+            "service": "com.sap.bnc.nss.service",
+            "endpoint": "coreservice",
+            "csrfProtection": true,
+            "authenticationType": "xsuaa"
+          },
+          {
+            "source": "^/nss/service(.*)$",
+            "target": "$1",
+            "service": "com.sap.bnc.nss.service",
+            "endpoint": "coreservice",
+            "csrfProtection": true,
+            "authenticationType": "xsuaa"
+          },
+          {
+            "source": "^/odata/v2/(.*)$",
+            "target": "/odata/v2/$1",
+            "service": "com.sap.bnc.nss.service",
+            "endpoint": "coreservice",
+            "csrfProtection": true,
+            "authenticationType": "xsuaa"
+          }
   ]
 }

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  */
 public class Constants {
 
-    public static final String GTT_MODEL_NAMESPACE = "com.lbngttsamples.gtt.app.sof";
+    public static final String GTT_MODEL_NAMESPACE = "com.sapgttnssoj0c6xbb.gtt.app.sof";
     public static final String GTT_MODEL_NAMESPACE_WRITE_SERVICE = GTT_MODEL_NAMESPACE + ".sofWriteService";
     public static final String MODEL_NAMESPACE = GTT_MODEL_NAMESPACE + ".sofService";
     public static final String ENTITY_CONTAINER_NAME = "EntityContainer";
